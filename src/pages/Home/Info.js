@@ -11,7 +11,7 @@ const Info = () => {
             
             <InfoCard cardTitle='Visit Our Location' cardBOdy='USA, California 20, First Avenue, California' bgClass='bg-accent' img={marker}></InfoCard>
 
-            <InfoCard cardTitle='Contact Us' cardBOdy='Tel: +7 998 71 150
+            <InfoCard cardTitle='Contact Us' cardBOdy='Tel: +7 998 71 150 0
             Fax: +7 998 71 150' bgClass='bg-gradient-to-r from-secondary to-primary' img={phone}></InfoCard>
         </div>
     );
