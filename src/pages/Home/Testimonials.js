@@ -21,7 +21,7 @@ const Testimonials = () => {
         {
           "_id": 2,
           "img": people2,
-          "review": "One of the best dental clinic that provide the adequate treament. Their team work is professional.",
+          "review": "One of the best dental clinic that provide the adequate treatment. Their team work is professional.",
           "name": "Matt Cromwell",
           "location":"Alaska",
           "ratings": 5
