@@ -4,7 +4,7 @@ import FocusButton from '../Shared/FocusButton';
 
 const Statement = () => {
     return (
-        <div class="hero min-h-screen mx-4">
+        <div class="hero min-h-screen mx-4" data-aos="flip-down" data-aos-duration="3000">
             <div class="hero-content flex-col lg:flex-row gap-12">
                 <img src={statement} alt='' class="max-w-sm rounded-lg shadow-2xl" />
                 <div>

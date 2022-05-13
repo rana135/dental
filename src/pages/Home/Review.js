@@ -3,7 +3,8 @@ import React from 'react';
 const Review = ({ review }) => {
     return (
         <div>
-            <div class="card lg:max-w-lg bg-base-100 shadow-xl">
+            <div data-aos="zoom-in-down" data-aos-duration="3000"
+                class="card lg:max-w-lg bg-base-100 shadow-xl">
                 <div class="card-body">
                     <p>{review.review}</p>
                     <div className='flex items-center'>
@@ -14,7 +15,10 @@ const Review = ({ review }) => {
                         </div>
                         <div>
                             <h2 className='text-xl font-bold'>{review.name}</h2>
-                            <p>{review.location}</p>
+                            <div className='flex'>
+                                <p>{review.location}</p>
+                                <p className='ml-1'>⭐⭐⭐⭐⭐</p>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -15,7 +15,7 @@ const Testimonials = () => {
           "img": people1,
           "review": "The best community doctor we have had since the time of Dr. Asley Graff.",
           "name": "Devin Walker",
-          "location":"california",
+          "location":"Alabama",
           "ratings": 5
         },
         {
@@ -23,7 +23,7 @@ const Testimonials = () => {
           "img": people2,
           "review": "One of the best dental clinic that provide the adequate treament. Their team work is professional.",
           "name": "Matt Cromwell",
-          "location":"california",
+          "location":"Alaska",
           "ratings": 5
         },
         {
@@ -31,7 +31,7 @@ const Testimonials = () => {
           "img": people3,
           "review": "I was referred to Dr. Williams for a root canal. I had some anxiety.Great Service.",
           "name": "Jason Knill",
-          "location":"california",
+          "location":"Arizona",
           "ratings": 4.5
         },
         {
@@ -39,7 +39,7 @@ const Testimonials = () => {
           "img": people4,
           "review": "He is great with me and a great listener very pleased to have him as our family Doctor.",
           "name": "Taylor Waldon",
-          "location":"california",
+          "location":"Florida",
           "ratings": 5
         },
         {
@@ -47,7 +47,7 @@ const Testimonials = () => {
           "img": people5,
           "review": "I love they staff.Specially the Doctor so very care and professional with her career.",
           "name": "Maruf Mohanty",
-          "location":"california",
+          "location":"Maryland",
           "ratings": 4.5
         },
         {

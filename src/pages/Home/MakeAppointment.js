@@ -5,8 +5,11 @@ import appointment from '../../assets/images/appointment.png'
 
 const MakeAppointment = () => {
     return (
-        <section style={{background:`url(${appointment})`}}
-        className='flex justify-center items-center'>
+        <section data-aos="flip-left"
+        data-aos-easing="ease-out-cubic"
+        data-aos-duration="2000"
+         style={{background:`url(${appointment})`}}
+        className='flex justify-center items-center rounded-lg'>
             <div className='flex-1 hidden lg:block'>
                 <img className='mt-[-100px]' src={doctor} alt="" />
             </div>
