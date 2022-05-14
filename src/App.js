@@ -5,6 +5,7 @@ import Home from './pages/Home/Home';
 import About from './pages/About/About';
 import ScrollToTop from "react-scroll-to-top";
 import Footer from './pages/Shared/Footer/Footer';
+import Appointment from './pages/Appointment/Appointment';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Navbar></Navbar>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/appointment" element={<Appointment />} />
         <Route path="about" element={<About />} />
       </Routes>
       <Footer></Footer>
