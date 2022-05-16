@@ -30,7 +30,7 @@ const Login = () => {
         return <Loading></Loading>;
     }
     if (user || gUser) {
-        console.log(gUser);
+        console.log(gUser, user);
     }
     return (
         <div className='flex'>

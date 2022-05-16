@@ -1,5 +1,5 @@
 import React from 'react';
-import {  useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import { useForm } from "react-hook-form";
 import Loading from '../Shared/Loading';
@@ -14,23 +14,28 @@ const SignUp = () => {
         user,
         loading,
         error,
-      ] = useCreateUserWithEmailAndPassword(auth);
+    ] = useCreateUserWithEmailAndPassword(auth);
     const { register, formState: { errors }, handleSubmit } = useForm();
-    const onSubmit = data => {
+    const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+
+
+    const onSubmit = async data => {
         console.log(data)
-        createUserWithEmailAndPassword(data.email, data.password)
+        await createUserWithEmailAndPassword(data.email, data.password);
+        await updateProfile({ displayName:data.name });
+        console.log('Updated profile');
     };
 
     let signUpError;
-    if (error || gError) {
+    if (error || gError || updateError) {
         signUpError = <p className='text-red-500'><small>Error:
-            {error?.message || gError?.message}</small></p>
+            {error?.message || gError?.message || updateError.message}</small></p>
     }
-    if (loading || gLoading) {
+    if (loading || gLoading || updating) {
         return <Loading></Loading>;
     }
     if (user || gUser) {
-        console.log(gUser);
+        console.log(gUser, user);
     }
     return (
         <div className='flex'>
@@ -43,9 +48,7 @@ const SignUp = () => {
                         <h2 className="text-center text-2xl text-primary">SIGN UP</h2>
                         <form onSubmit={handleSubmit(onSubmit)}>
                             <div className="form-control w-full max-w-xs">
-                                <label className="label">
-                                    <span className="label-text">Name</span>
-                                </label>
+                                <small>Name</small>
                                 <input
                                     type="text"
                                     placeholder="name"
@@ -63,9 +66,7 @@ const SignUp = () => {
                                 </label>
                             </div>
                             <div className="form-control w-full max-w-xs">
-                                <label className="label">
-                                    <span className="label-text">Email</span>
-                                </label>
+                                <small>Email</small>
                                 <input
                                     type="email"
                                     placeholder="email"
@@ -88,9 +89,10 @@ const SignUp = () => {
                                 </label>
                             </div>
                             <div className="form-control w-full max-w-xs">
-                                <label className="label">
+                                {/* <label className="label">
                                     <span className="label-text">Password</span>
-                                </label>
+                                </label> */}
+                                <small>Password</small>
                                 <input
                                     type="password"
                                     placeholder="password"
