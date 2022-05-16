@@ -20,6 +20,7 @@
     "react-scripts": "5.0.1",
     "react-scroll-to-top": "^1.0.8",
     "react-typed": "^1.2.0",
+    "tw-elements": "^1.0.0-alpha12",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

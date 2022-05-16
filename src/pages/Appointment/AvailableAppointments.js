@@ -11,11 +11,15 @@ const AvailableAppointments = ({ selected }) => {
             .then(res => res.json())
             .then(data => setServices(data))
     }, [])
+    let footer = <p>Please pick a day.</p>;
+    if (selected) {
+        footer = <p>Available Appointments on {format(selected, 'PP')}.</p>;
+    }
     return (
         <div>
             <p data-aos="fade-down"
                 data-aos-easing="linear"
-                data-aos-duration="1500" className='text-xl text-center'>You picked <span className='font-bold'>{format(selected, 'PP')}.</span></p>;
+                data-aos-duration="1500" className='text-xl text-center'><span className='font-bold'>{footer}</span></p>;
             <p className='text-center'>Please Select a Service</p>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
                 {
