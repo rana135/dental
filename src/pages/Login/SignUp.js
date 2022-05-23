@@ -1,20 +1,22 @@
 import React from 'react';
-import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useSendEmailVerification, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import { useForm } from "react-hook-form";
 import Loading from '../Shared/Loading';
 import signUp from '../../assets/images/signUp.png'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 
 const SignUp = () => {
+    let navigate = useNavigate();
     const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
     const [
         createUserWithEmailAndPassword,
         user,
         loading,
         error,
-    ] = useCreateUserWithEmailAndPassword(auth);
+    ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
     const { register, formState: { errors }, handleSubmit } = useForm();
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);
 
@@ -22,7 +24,7 @@ const SignUp = () => {
     const onSubmit = async data => {
         console.log(data)
         await createUserWithEmailAndPassword(data.email, data.password);
-        await updateProfile({ displayName:data.name });
+        await updateProfile({ displayName: data.name });
         console.log('Updated profile');
     };
 
@@ -35,14 +37,14 @@ const SignUp = () => {
         return <Loading></Loading>;
     }
     if (user || gUser) {
-        console.log(gUser, user);
+        navigate('/')
     }
     return (
-        <div className='flex'>
+        <div className='grid lg:grid-cols-2 grid-cols-1 justify-center'>
             <div>
-                <img className='w-100' src={signUp} alt="" />
+                <img src={signUp} alt="" />
             </div>
-            <div className='flex items-center justify-end mr-12'>
+            <div className='flex items-center justify-center lg:ml-12'>
                 <div className="card w-96 bg-base-100 shadow-xl">
                     <div className="card-body">
                         <h2 className="text-center text-2xl text-primary">SIGN UP</h2>
@@ -121,7 +123,7 @@ const SignUp = () => {
                         <div className="divider text-primary">OR</div>
                         <button onClick={() => signInWithGoogle()}
                             className="btn btn-outline btn-primary w-full border-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488 512" class="w-7 h-7"><path fill="currentColor" d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z" /></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488 512" className="w-7 h-7"><path fill="currentColor" d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z" /></svg>
                             <p>CONTINUE WITH GOOGLE</p>
                         </button>
                     </div>

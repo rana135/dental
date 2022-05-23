@@ -1,20 +1,27 @@
 import { format } from 'date-fns';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
+import { useQuery } from 'react-query';
+import Loading from '../Shared/Loading';
 import BookingModal from './BookingModal';
 import Service from './Service';
 
-const AvailableAppointments = ({ selected }) => {
-    const [services, setServices] = useState([]);
-    const [treatment, setTreatment] = useState(null);
-    useEffect(() => {
-        fetch("http://localhost:5000/service")
-            .then(res => res.json())
-            .then(data => setServices(data))
-    }, [])
+const AvailableAppointments = ({ selected}) => {
+    const [treatment, setTreatment] = useState(null)
+    const formattedDate = format(selected, 'PP')
+
+    const { data: services, isLoading, refetch } = useQuery(['available',formattedDate], () => fetch(`http://localhost:5000/available?date=${formattedDate}`)
+        .then(res => res.json()))
+
+    if (isLoading) {
+        return <Loading></Loading>
+    }
+
+    
     let footer = <p>Please pick a day.</p>;
     if (selected) {
         footer = <p>Available Appointments on {format(selected, 'PP')}.</p>;
     }
+    
     return (
         <div>
             <p data-aos="fade-down"
@@ -29,7 +36,7 @@ const AvailableAppointments = ({ selected }) => {
                         setTreatment={setTreatment}
                     ></Service>)
                 }
-                {treatment && <BookingModal selected={selected } treatment={treatment} setTreatment={setTreatment}></BookingModal>}
+                {treatment && <BookingModal refetch={refetch} selected={selected } treatment={treatment} setTreatment={setTreatment}></BookingModal>}
             </div>
         </div>
     );
