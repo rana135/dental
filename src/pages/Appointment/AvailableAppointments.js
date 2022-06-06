@@ -5,23 +5,23 @@ import Loading from '../Shared/Loading';
 import BookingModal from './BookingModal';
 import Service from './Service';
 
-const AvailableAppointments = ({ selected}) => {
+const AvailableAppointments = ({ selected }) => {
     const [treatment, setTreatment] = useState(null)
     const formattedDate = format(selected, 'PP')
 
-    const { data: services, isLoading, refetch } = useQuery(['available',formattedDate], () => fetch(`http://localhost:5000/available?date=${formattedDate}`)
+    const { data: services, isLoading, refetch } = useQuery(['available', formattedDate], () => fetch(`https://fierce-beach-54494.herokuapp.com/available?date=${formattedDate}`)
         .then(res => res.json()))
 
     if (isLoading) {
         return <Loading></Loading>
     }
 
-    
+
     let footer = <p>Please pick a day.</p>;
     if (selected) {
         footer = <p>Available Appointments on {format(selected, 'PP')}.</p>;
     }
-    
+
     return (
         <div>
             <p data-aos="fade-down"
@@ -36,7 +36,7 @@ const AvailableAppointments = ({ selected}) => {
                         setTreatment={setTreatment}
                     ></Service>)
                 }
-                {treatment && <BookingModal refetch={refetch} selected={selected } treatment={treatment} setTreatment={setTreatment}></BookingModal>}
+                {treatment && <BookingModal refetch={refetch} selected={selected} treatment={treatment} setTreatment={setTreatment}></BookingModal>}
             </div>
         </div>
     );

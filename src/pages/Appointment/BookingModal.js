@@ -4,11 +4,11 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 
-const BookingModal = ({ treatment, selected, setTreatment, refetch}) => {
+const BookingModal = ({ treatment, selected, setTreatment, refetch }) => {
     const [user] = useAuthState(auth);
     const formattedDate = format(selected, 'PP')
     const { _id, name, slots } = treatment;
-    
+
     const handleBooking = (event) => {
         event.preventDefault();
         const slot = event.target.slot.value;
@@ -22,26 +22,26 @@ const BookingModal = ({ treatment, selected, setTreatment, refetch}) => {
             patientName: user.displayName,
             phone: event.target.phone.value
         }
-        fetch("http://localhost:5000/booking",{
-            method:"POST",
-            headers:{
-                "content-type":'application/json',
+        fetch("https://fierce-beach-54494.herokuapp.com/booking", {
+            method: "POST",
+            headers: {
+                "content-type": 'application/json',
             },
-            body:JSON.stringify(booking)
+            body: JSON.stringify(booking)
         })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data);
-            setTreatment(null);
-            refetch();
-            if(data.success){
-                toast(`Appointment is set ${formattedDate} at ${slot}`)
-            }
-            else{
-                toast.error(`Already have an appointment ${data.booking?.date} at 
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                setTreatment(null);
+                refetch();
+                if (data.success) {
+                    toast(`Appointment is set ${formattedDate} at ${slot}`)
+                }
+                else {
+                    toast.error(`Already have an appointment ${data.booking?.date} at 
                 ${data.booking?.slot}`)
-            }
-        })
+                }
+            })
     }
     return (
         <div>

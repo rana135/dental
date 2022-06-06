@@ -1,8 +1,10 @@
 import React from 'react';
+import Map from '../Map/Map';
 
 const About = () => {
     return (
         <div>
+            <div>
             <div className="accordion accordion-flush" id="accordionFlushExample">
                 <div className="accordion-item border-t-0 border-l-0 border-r-0 rounded-none bg-white border border-gray-200">
                     <h2 className="accordion-header mb-0" id="flush-headingOne">
@@ -90,6 +92,8 @@ const About = () => {
                     </div>
                 </div>
             </div>
+        </div>
+           <Map></Map>
         </div>
     );
 };

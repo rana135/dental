@@ -7,7 +7,7 @@ const MyAppointment = () => {
     const [appointments, setAppointments] = useState([]);
     useEffect(() => {
         if (user) {
-            fetch(`http://localhost:5000/booking?patient=${user.email}`)
+            fetch(`https://fierce-beach-54494.herokuapp.com/booking?patient=${user.email}`)
                 .then(res => res.json())
                 .then(data => setAppointments(data))
         }
