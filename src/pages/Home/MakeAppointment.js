@@ -1,5 +1,5 @@
 import React from 'react';
-import doctor from '../../assets/images/doctor-small.png'
+import doctor from '../../assets/images/doctor.png'
 import FocusButton from '../Shared/FocusButton';
 import appointment from '../../assets/images/appointment.png'
 

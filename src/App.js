@@ -2,7 +2,6 @@ import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Navbar from './pages/Shared/Navbar/Navbar';
 import Home from './pages/Home/Home';
-import About from './pages/About/About';
 import ScrollToTop from "react-scroll-to-top";
 import Footer from './pages/Shared/Footer/Footer';
 import Appointment from './pages/Appointment/Appointment';
@@ -15,6 +14,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import Dashboard from './pages/Dashboard/Dashboard';
 import MyReview from './pages/Dashboard/MyReview';
 import MyAppointment from './pages/Dashboard/MyAppointment';
+import AllReviews from './pages/Home/AllReviews';
+import Map from './pages/Map/Map';
 
 function App() {
   return (
@@ -27,6 +28,8 @@ function App() {
             <Appointment />
           </RequireAuth>
         } />
+        <Route path="/contact" element={<Map />} />
+        <Route path="/reviews" element={<AllReviews />} />
         <Route path="/dashboard" element={
           <RequireAuth>
             <Dashboard />
@@ -35,7 +38,6 @@ function App() {
           <Route index element={<MyAppointment />} />
         <Route path="review" element={<MyReview />} />
         </Route>
-        <Route path="/about" element={<About />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="*" element={<NotFound />} />
