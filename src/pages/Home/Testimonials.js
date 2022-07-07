@@ -78,9 +78,9 @@ const Testimonials = () => {
             review={review}
           ></Review>)
         }
-        <div className='lg:mx-96'>
-          <button className='btn btn-primary text-white'><Link to='/reviews'>All Reviews</Link></button>
-        </div>
+      </div>
+      <div className='text-center mt-5'>
+        <button className='btn btn-primary text-white'><Link to='/reviews'>All Reviews</Link></button>
       </div>
     </section>
   );

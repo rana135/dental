@@ -29,6 +29,7 @@ const Services = () => {
             <div className='text-center mb-5'>
                 <h3 className='text-primary text-2xl font-bold'>Our Services</h3>
                 <h1 className='text-4xl font-bold'>Services We Provide</h1>
+                <p className='text-center text-xl mt-3'>Our mission is to provide world-class dental care for our patients at an affordable cost with finest, atraumatic treatment possible which will eliminate their problems and satisfy their needs</p>
             </div>
             <div className='grid sm:grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-6 text-center'>
                 {
@@ -43,3 +44,5 @@ const Services = () => {
 };
 
 export default Services;
+
+
