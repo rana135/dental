@@ -1,0 +1,21 @@
+.bannerImg{
+    background-image: url('../../../assets/images/doctor.webp');
+    padding: 12rem 5rem;
+    background-color: black;
+    background-attachment: fixed;
+    padding-right: 17rem;
+}
+
+@media only screen and (max-width: 600px) {
+    .bannerImg{
+        padding: 2rem 1rem;
+    }
+    .bannerDescription h1{
+       font-size: large;
+       margin: 0%;
+    }
+    .bannerDescription p{
+       font-size: small;
+       margin: 0%;
+    }
+}
