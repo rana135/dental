@@ -6,9 +6,8 @@ const Banner1 = () => {
     return (
         <div className="hero bannerImg">
             <div className='bannerDescription'>
-                <h1 className="text-white text-5xl font-bold">Providing
-                    Best <span className='text-secondary font-bold'>Health <br/> Solution !</span></h1>
-                <p className="py-6 text-white">At Smile Hub we understand the demands of a busy work schedule and can offer the very latest in screening, preventative and aesthetic dental care at all of our clinics.We are a multi-cultural team of expert dental professionals practising right in the heart of the City of London. With diverse skills and a remarkable range of experience we can offer every kind of general dental service to a very high standard.The most valuable thing is your health.So We always try to our best.</p>
+                <h1 className="text-white text-5xl font-bold">Everybody Deserves <span className='text-teal-400 font-bold'>a Perfect Smile</span></h1>
+                <p className="py-6 text-white">Here at Denta Care Turkey, we believe everyone deserves a healthy and attractive smile. Our experienced cosmetic dentists have seen first-hand the difference having attractive teeth can make to someone’s sense of well-being and self-esteem. Nothing gives us greater pleasure than seeing someone leave our clinic with a big, confident smile. Even though we have completed thousands of smile makeovers over the years, it is always a fantastic feeling.</p>
                 <FocusButton>Get Started</FocusButton>
             </div>
         </div>

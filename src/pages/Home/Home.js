@@ -18,15 +18,14 @@ const home = () => {
             <Banner1></Banner1>
             <div className='lg:mx-12'>
                 <WhyChooseUs></WhyChooseUs>
-                <Info></Info>
                 <Services></Services>
                 <Banner></Banner>
                 <Statement></Statement>
                 <DentalOffice></DentalOffice>
                 <MakeAppointment></MakeAppointment>
                 {/* <ContactUs></ContactUs> */}
-                <Testimonials></Testimonials>
                 <SubscribeCard></SubscribeCard>
+                <Testimonials></Testimonials>
             </div>
         </div>
     );

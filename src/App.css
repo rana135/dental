@@ -1,10 +1,10 @@
-.service-item:hover {
+.service-item{
   -webkit-box-shadow: 3px 4px 8px 0px #000000;
   box-shadow: 3px 4px 8px 0px #000000;
   border-radius: 10px;
   padding: 10px;
 }
-.first-service-item {
+.welcome-service-item{
   -webkit-box-shadow: 3px 4px 8px 0px #000000;
   box-shadow: 3px 4px 8px 0px #000000;
   border-radius: 10px;
