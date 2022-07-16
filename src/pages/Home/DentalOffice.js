@@ -5,7 +5,9 @@ import office from '../../assets/images/office.jpg'
 const DentalOffice = () => {
     return (
         <div>
-            <div class="hero min-h-screen ">
+            <div class="hero mt-28" data-aos="flip-right"
+                data-aos-easing="ease-out-cubic"
+                data-aos-duration="2000">
                 <div class="hero-content flex-col lg:flex-row-reverse">
                     <div className='ml-6'>
                         <h1 class="text-3xl font-bold">BRAND NEW FULLY DIGITAL DENTAL OFFICE</h1>

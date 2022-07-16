@@ -7,7 +7,7 @@ const Banner = () => {
     return (
         <div>
             <div>
-                <div className="hero-content flex-col lg:flex-row-reverse mt-20">
+                <div className="hero-content flex-col lg:flex-row-reverse mt-28">
                     <img data-aos="fade-left" data-aos-duration="3000" src={dentist1} alt='' className=" rounded-lg shadow-2xl lg:h-80 lg:w-full sm:h-32" />
                     <div data-aos="fade-right" data-aos-duration="3000">
                         <h1 className="text-4xl font-bold">

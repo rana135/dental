@@ -9,7 +9,7 @@ const MakeAppointment = () => {
             data-aos-easing="ease-out-cubic"
             data-aos-duration="2000"
             style={{ background: `url(${appointment})` }}
-            className='lg:flex justify-center items-center rounded-lg'>
+            className='lg:flex justify-center items-center rounded-lg mt-28'>
             <div className='flex-1 ml-6'>
                 <img className='lg:mt-[-100px]' src={doctor} alt="" />
             </div>
