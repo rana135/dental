@@ -22,7 +22,7 @@ const BookingModal = ({ treatment, selected, setTreatment, refetch }) => {
             patientName: user.displayName,
             phone: event.target.phone.value
         }
-        fetch("https://fierce-beach-54494.herokuapp.com/booking", {
+        fetch("https://dental-server-two.vercel.app/booking", {
             method: "POST",
             headers: {
                 "content-type": 'application/json',

@@ -7,7 +7,7 @@ const MyAppointment = () => {
     const [appointments, setAppointments] = useState([]);
     useEffect(() => {
         if (user) {
-            fetch(`https://fierce-beach-54494.herokuapp.com/booking?patient=${user.email}`)
+            fetch(`https://dental-server-two.vercel.app/booking?patient=${user.email}`)
                 .then(res => res.json())
                 .then(data => setAppointments(data))
         }

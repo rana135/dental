@@ -9,7 +9,7 @@ const AvailableAppointments = ({ selected }) => {
     const [treatment, setTreatment] = useState(null)
     const formattedDate = format(selected, 'PP')
 
-    const { data: services, isLoading, refetch } = useQuery(['available', formattedDate], () => fetch(`https://fierce-beach-54494.herokuapp.com/available?date=${formattedDate}`)
+    const { data: services, isLoading, refetch } = useQuery(['available', formattedDate], () => fetch(`https://dental-server-two.vercel.app/available?date=${formattedDate}`)
         .then(res => res.json()))
 
     if (isLoading) {
